@@ -48,12 +48,15 @@ function injectStarButtons() {
         const fileName = block.attr('file_name');
         if (!fileName) return;
 
-        const btn = $('<div class="fav_chat_btn"></div>');
+        const btn = $('<div class="fav_chat_btn fa-star"></div>');
+        btn.addClass(isFavorite(fileName) ? 'fa-solid' : 'fa-regular');
         btn.toggleClass('active', isFavorite(fileName));
         btn.on('click', function (e) {
             e.stopPropagation();
             const nowFav = toggleFavorite(fileName);
-            $(this).toggleClass('active', nowFav);
+            $(this).toggleClass('active', nowFav)
+                   .toggleClass('fa-solid', nowFav)
+                   .toggleClass('fa-regular', !nowFav);
             if (getSettings().filterActive) applyFilter();
         });
 
@@ -63,7 +66,7 @@ function injectStarButtons() {
 
 function injectFilterButton() {
     if ($('#fav_filter_btn').length) return;
-    const btn = $('<div id="fav_filter_btn" class="fa-solid fa-star" title="Show favorites only"></div>');
+    const btn = $('<div id="fav_filter_btn" class="menu_button menu_button_icon" title="Show favorites only"><i class="fa-solid fa-star"></i><span>Favorites</span></div>');
     btn.toggleClass('active', getSettings().filterActive);
     btn.on('click', function () {
         const settings = getSettings();

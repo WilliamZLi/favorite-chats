@@ -1,15 +1,7 @@
 .fav_chat_btn {
     cursor: pointer;
     opacity: 0.4;
-    font-size: 14px;
-    padding: 2px 4px;
     transition: opacity 0.15s, color 0.15s;
-}
-
-.fav_chat_btn::before {
-    content: '\f005'; /* fa-star */
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 400; /* regular (outline) */
 }
 
 .fav_chat_btn:hover {
@@ -21,21 +13,6 @@
     color: gold;
 }
 
-.fav_chat_btn.active::before {
-    font-weight: 900; /* solid (filled) */
-}
-
-#fav_filter_btn {
-    cursor: pointer;
-    opacity: 0.5;
-    transition: opacity 0.15s, color 0.15s;
-}
-
-#fav_filter_btn:hover {
-    opacity: 0.8;
-}
-
 #fav_filter_btn.active {
-    opacity: 1;
     color: gold;
 }
